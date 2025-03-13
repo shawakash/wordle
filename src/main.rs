@@ -1,3 +1,11 @@
+use wordle::{algos::naive::Naive, play};
+
+const GAMES: &str = include_str!("../answers.txt");
+
 fn main() {
-    println!("Hello, world!");
+    let mut game = Naive::new();
+
+    for answer in GAMES.split_whitespace() {
+        play(answer, &mut game);
+    }
 }
